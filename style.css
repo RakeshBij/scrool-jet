@@ -28,5 +28,5 @@ svg path {
   stroke-dashoffset: 0;
   stroke-width: 0.4;
   stroke: #000;
-  /* fill: none; */
+  fill: none;
 }

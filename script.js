@@ -1,0 +1,20 @@
+let paths = document.querySelectorAll("path");
+console.log(paths);
+document.addEventListener("scroll", fillSvgPaths);
+function fillSvgPaths() {
+  let scrollPercentage =
+    (document.documentElement.scrollTop + document.body.scrollTop) /
+    (document.documentElement.scrollHeight -
+      document.documentElement.clientHeight);
+
+  for (let i = 0; i < paths.length; i++) {
+    let path = paths[i];
+
+    let pathLength = path.getTotalLength();
+    path.style.strokeDasharray = 5;
+    path.style.strokeDashoffset = 5;
+
+    let drawLength = pathLength * scrollPercentage;
+    path.style.strokeDashoffset = pathLength - drawLength;
+  }
+}
